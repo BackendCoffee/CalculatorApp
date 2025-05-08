@@ -1,11 +1,32 @@
 package org.example;
 
+import org.example.Matrix.MatrixClass;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
         Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Pick your app...");
+            System.out.println("""
+                    1. Matrix App
+                    2. Calculator App
+                    Choice - [ 1 or 2 ] - """);
+            String choice = scanner.nextLine();
+
+            if (choice.equalsIgnoreCase("1")) {
+                MatrixClass.main(args);
+            } else if (choice.equalsIgnoreCase("2")) {
+                break;
+            } else {
+                System.out.println("\u001B[m32Invalid choice. Please try again.");
+            }
+            System.out.println("Exiting program...");
+            scanner.close();
+        }
 
         System.out.println("=== Simple Calculator ===");
 
